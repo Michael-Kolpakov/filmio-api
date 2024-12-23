@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.WebApi", "filmio-api.WebApi\filmio-api.WebApi.csproj", "{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.BLL", "filmio-api.BLL\filmio-api.BLL.csproj", "{772FF713-EAA1-416A-8C32-E2846A1C1E50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.DAL", "filmio-api.DAL\filmio-api.DAL.csproj", "{91447EA1-2B56-478D-98E8-43FBB779DCD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.XUnitTest", "filmio-api.XUnitTest\filmio-api.XUnitTest.csproj", "{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
