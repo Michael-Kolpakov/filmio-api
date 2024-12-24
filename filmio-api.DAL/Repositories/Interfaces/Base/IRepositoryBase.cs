@@ -1,0 +1,43 @@
+using System.Linq.Expressions;
+using filmio_api.DAL.Helpers;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Query;
+
+namespace filmio_api.DAL.Repositories.Interfaces.Base;
+
+public interface IRepositoryBase<T>
+    where T : class
+{
+    IQueryable<T> FindAll(
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default);
+
+    T Create(T entity);
+
+    Task<T> CreateAsync(T entity);
+
+    Task CreateRangeAsync(IEnumerable<T> items);
+
+    EntityEntry<T> Update(T entity);
+
+    void UpdateRange(IEnumerable<T> items);
+
+    void Delete(T entity);
+
+    void DeleteRange(IEnumerable<T> items);
+
+    Task<IEnumerable<T>> GetAllAsync(
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default);
+
+    PaginationResponse<T> GetAllPaginated(
+        ushort? pageNumber = null,
+        ushort? pageSize = null,
+        Expression<Func<T, T>>? selector = default,
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default);
+
+    Task<T?> GetFirstOrDefaultAsync(
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default);
+}
