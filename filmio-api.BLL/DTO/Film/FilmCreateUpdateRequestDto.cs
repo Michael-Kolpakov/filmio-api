@@ -3,7 +3,7 @@ using filmio_api.BLL.Attributes;
 
 namespace filmio_api.BLL.DTO.Film;
 
-public class FilmCreateUpdateDto
+public class FilmCreateUpdateRequestDto
 {
     [Required(ErrorMessage = "{0} can't be empty or null")]
     [StringLength(40, ErrorMessage = "{0} should be less than {1} characters")]

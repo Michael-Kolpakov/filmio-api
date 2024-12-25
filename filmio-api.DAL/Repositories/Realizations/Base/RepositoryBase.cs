@@ -87,6 +87,13 @@ public class RepositoryBase<T> : IRepositoryBase<T>
             pageSize);
     }
 
+    public async Task<T?> GetSingleOrDefaultAsync(
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
+    {
+        return await GetQueryable(predicate, include).SingleOrDefaultAsync();
+    }
+
     public async Task<T?> GetFirstOrDefaultAsync(
         Expression<Func<T, bool>>? predicate = default,
         Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)

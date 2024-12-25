@@ -9,8 +9,8 @@ public class FilmProfile : Profile
 {
     public FilmProfile()
     {
-        CreateMap<DAL.Entities.Film.Film, FilmDto>();
-        CreateMap<DAL.Entities.Film.Film, FilmCreateDto>().ReverseMap();
-        CreateMap<FilmUpdateDto, DAL.Entities.Film.Film>();
+        CreateMap<DAL.Entities.Film.Film, FilmResponseDto>();
+        CreateMap<DAL.Entities.Film.Film, FilmCreateRequestRequestDto>().ReverseMap();
+        CreateMap<FilmUpdateRequestDto, DAL.Entities.Film.Film>();
     }
 }
