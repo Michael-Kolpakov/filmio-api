@@ -12,9 +12,12 @@ public static class ApplicationServicesExtension
         IConfiguration configuration,
         IWebHostEnvironment environment)
     {
+        var currentAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+
         services.AddCustomDbContext(configuration);
         services.AddSerilogLogging(configuration, environment);
         services.AddRepositoryServices();
+        services.AddAutoMapper(currentAssemblies);
         services.AddScoped<ILoggerService, LoggerService>();
 
         return services;
