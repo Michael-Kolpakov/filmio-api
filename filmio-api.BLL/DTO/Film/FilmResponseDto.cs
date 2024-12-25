@@ -1,6 +1,6 @@
 namespace filmio_api.BLL.DTO.Film;
 
-public class FilmDto
+public class FilmResponseDto
 {
     public int Id { get; set; }
 

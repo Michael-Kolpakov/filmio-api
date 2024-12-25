@@ -1,3 +1,4 @@
+using System.Reflection;
 using filmio_api.BLL.Services.Interfaces.Logging;
 using filmio_api.BLL.Services.Realizations.Logging;
 using filmio_api.DAL.Repositories.Interfaces.Base;
@@ -13,11 +14,14 @@ public static class ApplicationServicesExtension
         IWebHostEnvironment environment)
     {
         var currentAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+        var bllAssembly = Assembly.Load("filmio-api.BLL");
 
         services.AddCustomDbContext(configuration);
         services.AddSerilogLogging(configuration, environment);
         services.AddRepositoryServices();
         services.AddAutoMapper(currentAssemblies);
+        services.AddMediatR(config => 
+            config.RegisterServicesFromAssemblies(bllAssembly));
         services.AddScoped<ILoggerService, LoggerService>();
 
         return services;
