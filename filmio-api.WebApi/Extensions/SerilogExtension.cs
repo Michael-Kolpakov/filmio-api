@@ -35,7 +35,7 @@ public static class SerilogExtension
                 new RenderedMessageColumnWriter()
             }
         };
-        
+
         loggerConfiguration = loggerConfiguration
             .WriteTo.PostgreSQL(
                 connectionString: configuration.GetSection("ConnectionStrings").GetValue<string>("DefaultConnection"),

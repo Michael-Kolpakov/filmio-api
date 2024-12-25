@@ -10,7 +10,7 @@ namespace filmio_api.BLL.MediatR.Film.Delete;
 public class DeleteFilmHandler : IRequestHandler<DeleteFilmCommand, Result<FilmResponseDto>>
 {
     private const string _notFoundErrorMessage = "There is no film with such Id";
-    
+
     private readonly IMapper _mapper;
     private readonly IRepositoryWrapper _repositoryWrapper;
     private readonly ILoggerService _logger;
@@ -39,7 +39,7 @@ public class DeleteFilmHandler : IRequestHandler<DeleteFilmCommand, Result<FilmR
             await _repositoryWrapper.SaveChangesAsync();
 
             var filmResponse = _mapper.Map<FilmResponseDto>(film);
-            
+
             return Result.Ok(filmResponse);
         }
         catch (Exception ex)
