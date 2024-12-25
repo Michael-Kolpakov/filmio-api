@@ -25,8 +25,20 @@ public static class ApplicationServicesExtension
         services.AddAutoMapper(currentAssemblies);
         services.AddMediatR(config =>
             config.RegisterServicesFromAssemblies(bllAssembly));
+        services.AddCors();
 
         return services;
+    }
+
+    private static void AddCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy", policy =>
+            {
+                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+            });
+        });
     }
 
     private static void AddRepositoryServices(this IServiceCollection services)
