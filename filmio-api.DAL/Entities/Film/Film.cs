@@ -9,7 +9,7 @@ public class Film
     public string? Genre { get; set; }
 
     public string? Director { get; set; }
-    
+
     public DateTime ReleaseDate { get; set; }
 
     public float? Rating { get; set; }

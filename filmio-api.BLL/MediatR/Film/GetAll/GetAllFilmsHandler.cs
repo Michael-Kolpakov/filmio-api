@@ -16,7 +16,7 @@ public class GetAllFilmsHandler : IRequestHandler<GetAllFilmsQuery, Result<GetAl
         _mapper = mapper;
         _repositoryWrapper = repositoryWrapper;
     }
-    
+
     public Task<Result<GetAllFilmsResponseDto>> Handle(GetAllFilmsQuery request, CancellationToken cancellationToken)
     {
         var paginatedFilms = _repositoryWrapper.FilmRepository.GetAllPaginated(request.page, request.pageSize);

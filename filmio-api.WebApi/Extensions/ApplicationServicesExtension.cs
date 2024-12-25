@@ -23,7 +23,7 @@ public static class ApplicationServicesExtension
         services.AddSerilogLogging(configuration, environment);
         services.AddRepositoryServices();
         services.AddAutoMapper(currentAssemblies);
-        services.AddMediatR(config => 
+        services.AddMediatR(config =>
             config.RegisterServicesFromAssemblies(bllAssembly));
 
         return services;
