@@ -10,7 +10,7 @@ public class FilmProfile : Profile
     public FilmProfile()
     {
         CreateMap<DAL.Entities.Film.Film, FilmResponseDto>();
-        CreateMap<DAL.Entities.Film.Film, FilmCreateRequestRequestDto>().ReverseMap();
+        CreateMap<DAL.Entities.Film.Film, FilmCreateRequestDto>().ReverseMap();
         CreateMap<FilmUpdateRequestDto, DAL.Entities.Film.Film>();
     }
 }

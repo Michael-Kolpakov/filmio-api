@@ -5,5 +5,5 @@ using MediatR;
 
 namespace filmio_api.BLL.MediatR.Film.Create;
 
-public record CreateFilmCommand(FilmCreateRequestRequestDto newFilm)
+public record CreateFilmCommand(FilmCreateRequestDto newFilm)
     : IRequest<Result<FilmResponseDto>>;

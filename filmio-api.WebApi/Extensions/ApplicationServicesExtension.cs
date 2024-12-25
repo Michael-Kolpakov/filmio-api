@@ -16,13 +16,15 @@ public static class ApplicationServicesExtension
         var currentAssemblies = AppDomain.CurrentDomain.GetAssemblies();
         var bllAssembly = Assembly.Load("filmio-api.BLL");
 
+        services.AddScoped<ILoggerService, LoggerService>();
+
+        services.AddControllers();
         services.AddCustomDbContext(configuration);
         services.AddSerilogLogging(configuration, environment);
         services.AddRepositoryServices();
         services.AddAutoMapper(currentAssemblies);
         services.AddMediatR(config => 
             config.RegisterServicesFromAssemblies(bllAssembly));
-        services.AddScoped<ILoggerService, LoggerService>();
 
         return services;
     }
