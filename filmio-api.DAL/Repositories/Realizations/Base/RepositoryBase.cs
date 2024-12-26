@@ -34,7 +34,7 @@ public class RepositoryBase<T> : IRepositoryBase<T>
         Expression<Func<T, object>>? ascendingSortKeySelector = default,
         Expression<Func<T, object>>? descendingSortKeySelector = default)
     {
-        IQueryable<T> query = GetQueryable(
+        var query = GetQueryable(
             predicate,
             include,
             selector,
@@ -106,7 +106,21 @@ public class RepositoryBase<T> : IRepositoryBase<T>
         int? limit = null,
         int? offset = null)
     {
-        var query = _filmioDbContext.Set<T>().AsNoTracking();
+        var entityType = _filmioDbContext.Model.FindEntityType(typeof(T));
+        var keyProperty = entityType?.FindPrimaryKey()?.Properties.FirstOrDefault();
+        IQueryable<T>? query;
+        
+        if (keyProperty != null)
+        {
+            query = _filmioDbContext
+                .Set<T>()
+                .AsNoTracking()
+                .OrderBy(e => EF.Property<object>(e, keyProperty.Name));
+        }
+        else
+        {
+            query = _filmioDbContext.Set<T>().AsNoTracking();
+        }
 
         if (include is not null)
         {
