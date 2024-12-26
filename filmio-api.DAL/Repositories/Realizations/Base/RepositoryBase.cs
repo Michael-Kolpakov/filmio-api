@@ -18,11 +18,46 @@ public class RepositoryBase<T> : IRepositoryBase<T>
         _filmioDbContext = filmioDbContext;
     }
 
-    public IQueryable<T> FindAll(
+    public async Task<IEnumerable<T>> GetAllAsync(
         Expression<Func<T, bool>>? predicate = default,
         Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
     {
-        return GetQueryable(predicate, include).AsNoTracking();
+        return await GetQueryable(predicate, include).ToListAsync();
+    }
+
+    public PaginationResponse<T> GetAllPaginated(
+        ushort? pageNumber = null,
+        ushort? pageSize = null,
+        Expression<Func<T, T>>? selector = default,
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default,
+        Expression<Func<T, object>>? ascendingSortKeySelector = default,
+        Expression<Func<T, object>>? descendingSortKeySelector = default)
+    {
+        IQueryable<T> query = GetQueryable(
+            predicate,
+            include,
+            selector,
+            orderByAsc: ascendingSortKeySelector,
+            orderByDesc: descendingSortKeySelector);
+        return PaginationResponse<T>.Create(
+            query,
+            pageNumber,
+            pageSize);
+    }
+
+    public async Task<T?> GetSingleOrDefaultAsync(
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
+    {
+        return await GetQueryable(predicate, include).SingleOrDefaultAsync();
+    }
+
+    public async Task<T?> GetFirstOrDefaultAsync(
+        Expression<Func<T, bool>>? predicate = default,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
+    {
+        return await GetQueryable(predicate, include).FirstOrDefaultAsync();
     }
 
     public T Create(T entity)
@@ -62,67 +97,40 @@ public class RepositoryBase<T> : IRepositoryBase<T>
         _filmioDbContext.Set<T>().RemoveRange(items);
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync(
-        Expression<Func<T, bool>>? predicate = default,
-        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
-    {
-        return await GetQueryable(predicate, include).ToListAsync();
-    }
-
-    public PaginationResponse<T> GetAllPaginated(
-        ushort? pageNumber = null,
-        ushort? pageSize = null,
-        Expression<Func<T, T>>? selector = default,
-        Expression<Func<T, bool>>? predicate = default,
-        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
-    {
-        IQueryable<T> query = GetQueryable(
-            predicate,
-            include,
-            selector);
-
-        return PaginationResponse<T>.Create(
-            query,
-            pageNumber,
-            pageSize);
-    }
-
-    public async Task<T?> GetSingleOrDefaultAsync(
-        Expression<Func<T, bool>>? predicate = default,
-        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
-    {
-        return await GetQueryable(predicate, include).SingleOrDefaultAsync();
-    }
-
-    public async Task<T?> GetFirstOrDefaultAsync(
-        Expression<Func<T, bool>>? predicate = default,
-        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default)
-    {
-        return await GetQueryable(predicate, include).FirstOrDefaultAsync();
-    }
-
     private IQueryable<T> GetQueryable(
         Expression<Func<T, bool>>? predicate = default,
         Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = default,
         Expression<Func<T, T>>? selector = default,
+        Expression<Func<T, object>>? orderByAsc = default,
+        Expression<Func<T, object>>? orderByDesc = default,
         int? limit = null,
         int? offset = null)
     {
         var query = _filmioDbContext.Set<T>().AsNoTracking();
 
-        if (include != null)
+        if (include is not null)
         {
             query = include(query);
         }
 
-        if (predicate != null)
+        if (predicate is not null)
         {
             query = query.Where(predicate);
         }
 
-        if (selector != null)
+        if (selector is not null)
         {
             query = query.Select(selector);
+        }
+
+        if (orderByAsc is not null)
+        {
+            query = query.OrderBy(orderByAsc);
+        }
+
+        if (orderByDesc is not null)
+        {
+            query = query.OrderByDescending(orderByDesc);
         }
 
         if (offset.HasValue && offset.Value >= 0)
