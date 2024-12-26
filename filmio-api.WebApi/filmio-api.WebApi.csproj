@@ -7,6 +7,10 @@
         <RootNamespace>filmio_api</RootNamespace>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\net8.0\filmio-api.WebApi.xml</DocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
       <ProjectReference Include="..\filmio-api.BLL\filmio-api.BLL.csproj" />
       <ProjectReference Include="..\filmio-api.DAL\filmio-api.DAL.csproj" />
@@ -22,6 +26,7 @@
       <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
       <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
       <PackageReference Include="Serilog.Sinks.PostgreSQL" Version="2.3.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     </ItemGroup>
 
 </Project>
