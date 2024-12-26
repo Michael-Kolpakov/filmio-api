@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.BLL", "filmio-ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.DAL", "filmio-api.DAL\filmio-api.DAL.csproj", "{91447EA1-2B56-478D-98E8-43FBB779DCD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.XUnitTest", "filmio-api.XUnitTest\filmio-api.XUnitTest.csproj", "{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmio.XUnitTest", "Filmio.XUnitTest\Filmio.XUnitTest.csproj", "{A994E09D-5CAE-4823-A62E-860198CCC732}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +26,9 @@ Global
 		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3AC9C14-52FB-4A07-B901-F55CE5A9D799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A994E09D-5CAE-4823-A62E-860198CCC732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A994E09D-5CAE-4823-A62E-860198CCC732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A994E09D-5CAE-4823-A62E-860198CCC732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A994E09D-5CAE-4823-A62E-860198CCC732}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

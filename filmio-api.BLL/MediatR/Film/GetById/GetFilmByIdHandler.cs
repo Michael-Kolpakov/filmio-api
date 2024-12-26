@@ -9,7 +9,7 @@ namespace filmio_api.BLL.MediatR.Film.GetById;
 
 public class GetFilmByIdHandler : IRequestHandler<GetFilmByIdQuery, Result<FilmResponseDto>>
 {
-    private const string _notFoundErrorMessage = "There is no film with such Id";
+    private const string _notFoundErrorMessage = "There is no film with such Id:";
 
     private readonly IMapper _mapper;
     private readonly IRepositoryWrapper _repositoryWrapper;
@@ -28,9 +28,9 @@ public class GetFilmByIdHandler : IRequestHandler<GetFilmByIdQuery, Result<FilmR
 
         if (film == null)
         {
-            _logger.LogError(request, _notFoundErrorMessage);
+            _logger.LogError(request, $"{_notFoundErrorMessage} {request.id}");
 
-            return Result.Fail(_notFoundErrorMessage);
+            return Result.Fail($"{_notFoundErrorMessage} {request.id}");
         }
 
         return Result.Ok(_mapper.Map<FilmResponseDto>(film));
