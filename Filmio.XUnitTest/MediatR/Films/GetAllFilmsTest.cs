@@ -1,11 +1,11 @@
 using System.Linq.Expressions;
 using AutoFixture;
 using AutoMapper;
-using filmio_api.BLL.DTO.Film;
-using filmio_api.BLL.MediatR.Film.GetAll;
-using filmio_api.DAL.Entities.Film;
-using filmio_api.DAL.Helpers;
-using filmio_api.DAL.Repositories.Interfaces.Base;
+using Filmio.BLL.DTO.Film;
+using Filmio.BLL.MediatR.Film.GetAll;
+using Filmio.DAL.Entities.Film;
+using Filmio.DAL.Helpers;
+using Filmio.DAL.Repositories.Interfaces.Base;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore.Query;
 using Moq;
