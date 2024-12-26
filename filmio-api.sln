@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.WebApi", "filmio-api.WebApi\filmio-api.WebApi.csproj", "{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.BLL", "filmio-api.BLL\filmio-api.BLL.csproj", "{772FF713-EAA1-416A-8C32-E2846A1C1E50}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmio-api.DAL", "filmio-api.DAL\filmio-api.DAL.csproj", "{91447EA1-2B56-478D-98E8-43FBB779DCD7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmio.XUnitTest", "Filmio.XUnitTest\Filmio.XUnitTest.csproj", "{A994E09D-5CAE-4823-A62E-860198CCC732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmio.BLL", "Filmio.BLL\Filmio.BLL.csproj", "{DE5EC499-D76E-4A13-A770-5165174A6126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmio.DAL", "Filmio.DAL\Filmio.DAL.csproj", "{0B6D5378-DA93-44B6-97D6-29989FD5CB32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmio.WebApi", "Filmio.WebApi\Filmio.WebApi.csproj", "{83BAB881-CEE4-4D2B-9D35-123EB033EF9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,21 +14,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34BB1EF4-8E9C-400F-B9B0-C5FAFBCCE200}.Release|Any CPU.Build.0 = Release|Any CPU
-		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{772FF713-EAA1-416A-8C32-E2846A1C1E50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91447EA1-2B56-478D-98E8-43FBB779DCD7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A994E09D-5CAE-4823-A62E-860198CCC732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A994E09D-5CAE-4823-A62E-860198CCC732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A994E09D-5CAE-4823-A62E-860198CCC732}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A994E09D-5CAE-4823-A62E-860198CCC732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5EC499-D76E-4A13-A770-5165174A6126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5EC499-D76E-4A13-A770-5165174A6126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5EC499-D76E-4A13-A770-5165174A6126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5EC499-D76E-4A13-A770-5165174A6126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B6D5378-DA93-44B6-97D6-29989FD5CB32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6D5378-DA93-44B6-97D6-29989FD5CB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B6D5378-DA93-44B6-97D6-29989FD5CB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B6D5378-DA93-44B6-97D6-29989FD5CB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BAB881-CEE4-4D2B-9D35-123EB033EF9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BAB881-CEE4-4D2B-9D35-123EB033EF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BAB881-CEE4-4D2B-9D35-123EB033EF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BAB881-CEE4-4D2B-9D35-123EB033EF9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

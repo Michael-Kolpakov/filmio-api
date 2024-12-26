@@ -1,5 +1,5 @@
-using filmio_api.BLL.Services.Interfaces.Logging;
-using filmio_api.BLL.Services.Realizations.Logging;
+using Filmio.BLL.Services.Interfaces.Logging;
+using Filmio.BLL.Services.Realizations.Logging;
 using Moq;
 using Serilog;
 

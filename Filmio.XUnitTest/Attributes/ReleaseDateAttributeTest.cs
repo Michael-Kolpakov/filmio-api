@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using filmio_api.BLL.Attributes;
+using Filmio.BLL.Attributes;
 using FluentAssertions;
 
 namespace Filmio.XUnitTest.Attributes;
