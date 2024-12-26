@@ -2,11 +2,7 @@ namespace filmio_api.DAL.Helpers;
 
 public class PaginationResponse<T>
 {
-    private PaginationResponse(
-        IEnumerable<T> items,
-        ushort count,
-        ushort pageNumber,
-        ushort pageSize)
+    private PaginationResponse(IEnumerable<T> items, ushort count, ushort pageNumber, ushort pageSize)
     {
         TotalItems = count;
         PageSize = pageSize;
@@ -34,20 +30,12 @@ public class PaginationResponse<T>
 
         if (pageNumber == null && pageSize == null)
         {
-            return new PaginationResponse<T>(
-                source?.AsEnumerable() ?? Enumerable.Empty<T>(),
-                count,
-                1,
-                count);
+            return new PaginationResponse<T>(source?.AsEnumerable() ?? Enumerable.Empty<T>(), count, 1, count);
         }
 
         if (pageNumber == 0)
         {
-            return new PaginationResponse<T>(
-                Enumerable.Empty<T>(),
-                count,
-                0,
-                0);
+            return new PaginationResponse<T>(Enumerable.Empty<T>(), count, 0, 0);
         }
 
         var items = source?
