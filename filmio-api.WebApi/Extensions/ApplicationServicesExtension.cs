@@ -3,6 +3,7 @@ using filmio_api.BLL.Services.Interfaces.Logging;
 using filmio_api.BLL.Services.Realizations.Logging;
 using filmio_api.DAL.Repositories.Interfaces.Base;
 using filmio_api.DAL.Repositories.Realizations.Base;
+using Microsoft.AspNetCore.Mvc;
 
 namespace filmio_api.Extensions;
 
@@ -18,8 +19,13 @@ public static class ApplicationServicesExtension
 
         services.AddScoped<ILoggerService, LoggerService>();
 
-        services.AddControllers();
+        services.AddControllers(options =>
+        {
+            options.Filters.Add(new ProducesAttribute("application/json"));
+            options.Filters.Add(new ConsumesAttribute("application/json"));
+        });
         services.AddCustomDbContext(configuration);
+        services.AddSwagger();
         services.AddSerilogLogging(configuration, environment);
         services.AddRepositoryServices();
         services.AddAutoMapper(currentAssemblies);

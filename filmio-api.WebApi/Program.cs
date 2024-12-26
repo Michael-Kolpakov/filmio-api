@@ -13,6 +13,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCustomSwagger();
 app.MapControllers();
 
 app.UseMiddleware<RequestLoggingSetupMiddleware>();
