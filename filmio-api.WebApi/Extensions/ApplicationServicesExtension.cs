@@ -40,9 +40,9 @@ public static class ApplicationServicesExtension
     {
         services.AddCors(options =>
         {
-            options.AddPolicy("CorsPolicy", policy =>
-            {
-                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+            options.AddDefaultPolicy(policy =>
+            { 
+                policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
             });
         });
     }
