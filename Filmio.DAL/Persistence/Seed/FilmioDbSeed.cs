@@ -1,9 +1,8 @@
 using System.Text.Json;
 using Filmio.DAL.Entities.Film;
-using Filmio.DAL.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace filmio_api.DAL.Persistence.Seed;
+namespace Filmio.DAL.Persistence.Seed;
 
 public static class FilmioDbSeed
 {
