@@ -1,5 +1,5 @@
-using filmio_api.DAL.Persistence.Seed;
 using Filmio.DAL.Persistence;
+using Filmio.DAL.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
 
 namespace Filmio.WebApi.Extensions;
