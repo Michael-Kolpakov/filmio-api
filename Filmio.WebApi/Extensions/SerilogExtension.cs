@@ -1,7 +1,9 @@
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Reflection;
 using Serilog;
 using Serilog.Events;
-using Serilog.Sinks.PostgreSQL;
+using Serilog.Sinks.MSSqlServer;
 
 namespace Filmio.WebApi.Extensions;
 
@@ -19,6 +21,8 @@ public static class SerilogExtension
             .MinimumLevel.Is(LogEventLevel.Information)
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
             .MinimumLevel.Override("System", LogEventLevel.Warning)
+            .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Warning)
+            .MinimumLevel.Override("Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler", LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .Enrich.WithMachineName()
             .Enrich.WithProperty("ProjectName", projectName);
@@ -28,20 +32,27 @@ public static class SerilogExtension
             loggerConfiguration = loggerConfiguration.WriteTo.Console(LogEventLevel.Information, _consoleLogTemplate);
         }
 
-        var columnOptions = new Dictionary<string, ColumnWriterBase>
+        var columnOptions = new ColumnOptions();
+        columnOptions.Store.Remove(StandardColumn.MessageTemplate);
+        columnOptions.Store.Remove(StandardColumn.Properties);
+        columnOptions.AdditionalColumns = new Collection<SqlColumn>
         {
+            new ()
             {
-                "RequestPath",
-                new RenderedMessageColumnWriter()
+                DataType = SqlDbType.NVarChar,
+                ColumnName = "RequestPath"
             }
         };
 
         loggerConfiguration = loggerConfiguration
-            .WriteTo.PostgreSQL(
+            .WriteTo.MSSqlServer(
                 connectionString: configuration.GetSection("ConnectionStrings").GetValue<string>("DefaultConnection"),
                 columnOptions: columnOptions,
-                tableName: "Logs",
-                needAutoCreateTable: true);
+                sinkOptions: new MSSqlServerSinkOptions
+                {
+                    AutoCreateSqlTable = true,
+                    TableName = "_Logs"
+                });
 
         Log.Logger = loggerConfiguration.CreateLogger();
     }
