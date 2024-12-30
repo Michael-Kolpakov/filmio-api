@@ -12,7 +12,7 @@ public static class DatabaseExtension
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<FilmioDbContext>(options =>
-            options.UseNpgsql(
+            options.UseSqlServer(
                 connectionString,
                 opt => opt.MigrationsAssembly(migrationsAssembly)));
 
