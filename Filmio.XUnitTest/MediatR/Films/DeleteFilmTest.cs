@@ -4,7 +4,7 @@ using AutoMapper;
 using Filmio.BLL.DTO.Film;
 using Filmio.BLL.MediatR.Film.Delete;
 using Filmio.BLL.Services.Interfaces.Logging;
-using Filmio.DAL.Entities.Film;
+using Filmio.DAL.Entities.Films;
 using Filmio.DAL.Repositories.Interfaces.Base;
 using FluentAssertions;
 using Moq;
