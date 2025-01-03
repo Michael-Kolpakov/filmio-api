@@ -22,7 +22,7 @@ public class CreateFilmHandler : IRequestHandler<CreateFilmCommand, Result<FilmR
 
     public async Task<Result<FilmResponseDto>> Handle(CreateFilmCommand request, CancellationToken cancellationToken)
     {
-        var newFilm = _mapper.Map<DAL.Entities.Film.Film>(request.newFilm);
+        var newFilm = _mapper.Map<DAL.Entities.Films.Film>(request.newFilm);
 
         try
         {

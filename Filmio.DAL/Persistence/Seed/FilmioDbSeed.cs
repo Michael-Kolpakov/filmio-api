@@ -1,5 +1,5 @@
 using System.Text.Json;
-using Filmio.DAL.Entities.Film;
+using Filmio.DAL.Entities.Films;
 using Microsoft.EntityFrameworkCore;
 
 namespace Filmio.DAL.Persistence.Seed;
