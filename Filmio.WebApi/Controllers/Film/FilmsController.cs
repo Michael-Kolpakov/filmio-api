@@ -6,6 +6,7 @@ using Filmio.BLL.MediatR.Film.Delete;
 using Filmio.BLL.MediatR.Film.GetAll;
 using Filmio.BLL.MediatR.Film.GetById;
 using Filmio.BLL.MediatR.Film.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Filmio.WebApi.Controllers.Film;
@@ -19,6 +20,7 @@ public class FilmsController : BaseApiController
     /// <param name="pageSize">Number of elements per page</param>
     /// <returns>Returns movies that have passed the selection</returns>
     [HttpGet("get-all")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetAllFilmsResponseDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAll([FromQuery] ushort? page, [FromQuery] ushort? pageSize)
@@ -32,6 +34,7 @@ public class FilmsController : BaseApiController
     /// <param name="id">Id using which we want to receive the film</param>
     /// <returns>Returns the corresponding film</returns>
     [HttpGet("get-by-id/{id:int}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(FilmResponseDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -46,6 +49,7 @@ public class FilmsController : BaseApiController
     /// <param name="film">The film object to be added to the database</param>
     /// <returns>Returns the added film object</returns>
     [HttpPost("create")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(FilmResponseDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create([FromBody] FilmCreateRequestDto film)
@@ -59,6 +63,7 @@ public class FilmsController : BaseApiController
     /// <param name="film">New film object to change old one</param>
     /// <returns>Returns the modified film object</returns>
     [HttpPut("update")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(FilmResponseDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Update([FromBody] FilmUpdateRequestDto film)
@@ -72,6 +77,7 @@ public class FilmsController : BaseApiController
     /// <param name="id">Id using which the film object to be deleted will be found</param>
     /// <returns>Returns the deleted film object</returns>
     [HttpDelete("delete/{id:int}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(FilmResponseDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

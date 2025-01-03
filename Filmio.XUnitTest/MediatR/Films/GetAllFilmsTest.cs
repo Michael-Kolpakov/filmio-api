@@ -3,7 +3,7 @@ using AutoFixture;
 using AutoMapper;
 using Filmio.BLL.DTO.Film;
 using Filmio.BLL.MediatR.Film.GetAll;
-using Filmio.DAL.Entities.Film;
+using Filmio.DAL.Entities.Films;
 using Filmio.DAL.Helpers;
 using Filmio.DAL.Repositories.Interfaces.Base;
 using FluentAssertions;

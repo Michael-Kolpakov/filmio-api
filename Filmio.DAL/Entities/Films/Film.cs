@@ -1,7 +1,10 @@
-namespace Filmio.DAL.Entities.Film;
+using System.ComponentModel.DataAnnotations;
+
+namespace Filmio.DAL.Entities.Films;
 
 public class Film
 {
+    [Key]
     public int Id { get; set; }
 
     public string? Title { get; set; }

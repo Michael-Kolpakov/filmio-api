@@ -122,27 +122,27 @@ public class RepositoryBase<T> : IRepositoryBase<T>
             query = _filmioDbContext.Set<T>().AsNoTracking();
         }
 
-        if (include is not null)
+        if (include != null)
         {
             query = include(query);
         }
 
-        if (predicate is not null)
+        if (predicate != null)
         {
             query = query.Where(predicate);
         }
 
-        if (selector is not null)
+        if (selector != null)
         {
             query = query.Select(selector);
         }
 
-        if (orderByAsc is not null)
+        if (orderByAsc != null)
         {
             query = query.OrderBy(orderByAsc);
         }
 
-        if (orderByDesc is not null)
+        if (orderByDesc != null)
         {
             query = query.OrderByDescending(orderByDesc);
         }
